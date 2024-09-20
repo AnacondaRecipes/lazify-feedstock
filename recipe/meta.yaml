@@ -1,0 +1,45 @@
+{% set name = "lazify" %}
+{% set version = "0.4.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Lazify-{{ version }}.tar.gz
+  sha256: 7102bfe63e56de2ab62b3bc661a7190c4056771a8624f04a8b785275c3dd1f9b
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - lazify
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/numberly/lazify
+  summary: Lazify all the things!
+  license: BSD-3-Clause
+  license_file: LICENSE
+  dev_url: https://github.com/numberly/lazify
+  doc_url: https://github.com/Refty/lazify/blob/master/README.rst
+
+extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/49522
+    reason: Dependency for chainlit
+  recipe-maintainers:
+    - ianaobi
