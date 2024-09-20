@@ -18,6 +18,7 @@ requirements:
   host:
     - python
     - pip
+    - wheel
   run:
     - python
 
@@ -43,4 +44,3 @@ extra:
     reason: Dependency for chainlit
   recipe-maintainers:
     - ianaobi
-    - bkreider
