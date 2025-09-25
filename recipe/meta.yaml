@@ -10,30 +10,39 @@ source:
   sha256: 7102bfe63e56de2ab62b3bc661a7190c4056771a8624f04a8b785275c3dd1f9b
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
     - pip
+    - python
+    - wheel
+    - setuptools
   run:
     - python
 
 test:
+  files:
+    - test_lazify.py
   imports:
     - lazify
   commands:
     - pip check
+    - pytest -v test_lazify.py
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/numberly/lazify
   summary: Lazify all the things!
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE
+  description: |
+    Lazify aims to be the defacto standard and most complete library for Python tools related to lazy evaluation.
+    It’s originally based on Babel and its babel.support.LazyProxy class.
   dev_url: https://github.com/numberly/lazify
   doc_url: https://github.com/Refty/lazify/blob/master/README.rst
 
