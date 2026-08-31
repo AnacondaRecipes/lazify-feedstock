@@ -35,7 +35,7 @@ test:
     - pytest
 
 about:
-  home: https://github.com/numberly/lazify
+  home: https://github.com/Refty/lazify
   summary: Lazify all the things!
   license: BSD-3-Clause
   license_family: BSD
@@ -43,7 +43,7 @@ about:
   description: |
     Lazify aims to be the defacto standard and most complete library for Python tools related to lazy evaluation.
     It’s originally based on Babel and its babel.support.LazyProxy class.
-  dev_url: https://github.com/numberly/lazify
+  dev_url: https://github.com/Refty/lazify
   doc_url: https://github.com/Refty/lazify/blob/master/README.rst
 
 extra:
